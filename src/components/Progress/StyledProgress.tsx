@@ -1,18 +1,25 @@
 import styled from "styled-components";
 import { space, variant as StyledSystemVariant } from "styled-system";
-import { styleVariants } from "./themes";
+import { lightColors } from "../../theme";
+import { styleVariants, styleScales } from "./themes";
 import { ProgressProps, variants } from "./types";
 
-interface BarProps {
+interface ProgressBarProps {
   primary?: boolean;
+  $useDark: boolean;
+  $background?: string;
 }
 
-export const Bar = styled.div<BarProps>`
+export const Bar = styled.div<ProgressBarProps>`
   position: absolute;
   top: 0;
   left: 0;
-  background-color: ${(props) => (props.primary ? props.theme.colors.secondary : `${props.theme.colors.secondary}80`)};
-  height: 16px;
+  background: ${({ theme, $useDark, primary, $background }) => {
+    if ($background) return $background;
+    if ($useDark) return primary ? theme.colors.secondary : `${theme.colors.secondary}80`;
+    return primary ? lightColors.secondary : `${lightColors.secondary}80`;
+  }};
+  height: 100%;
   transition: width 200ms ease;
 `;
 
@@ -22,13 +29,14 @@ Bar.defaultProps = {
 
 interface StyledProgressProps {
   variant: ProgressProps["variant"];
+  scale: ProgressProps["scale"];
+  $useDark: boolean;
 }
 
 const StyledProgress = styled.div<StyledProgressProps>`
   position: relative;
-  background-color: ${({ theme }) => theme.colors.input};
+  background-color: ${({ theme, $useDark }) => ($useDark ? theme.colors.input : lightColors.input)};
   box-shadow: ${({ theme }) => theme.shadows.inset};
-  height: 16px;
   overflow: hidden;
 
   ${Bar} {
@@ -38,6 +46,10 @@ const StyledProgress = styled.div<StyledProgressProps>`
 
   ${StyledSystemVariant({
     variants: styleVariants,
+  })}
+  ${StyledSystemVariant({
+    prop: "scale",
+    variants: styleScales,
   })}
   ${space}
 `;
