@@ -135,9 +135,9 @@ const Menu: React.FC<NavProps> = ({
               {/* <Logo isDark={isDark} href={homeLink?.href ?? "/"} /> */}
               <img 
                 style={{
-                  width: 131,
-                  height: 40,
-                  margin: '7px 0 0 5px'
+                  width: 164,
+                  maxHeight: 40,
+                  margin: '7px 0 0 0'
                 }} 
                 src="https://raw.githubusercontent.com/WhaleKingToken/Contracts/main/logo.png" 
               />

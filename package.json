@@ -53,7 +53,8 @@
     "@types/styled-system": "^5.1.10",
     "lodash": "^4.17.20",
     "react-popper": "^2.2.5",
-    "styled-system": "^5.1.5"
+    "styled-system": "^5.1.5",
+    "tsc": "^2.0.4"
   },
   "publishConfig": {
     "access": "public"

@@ -5001,9 +5001,9 @@ var Menu$1 = function (_a) {
                 React__default["default"].createElement(StyledNav, null,
                     React__default["default"].createElement(Flex, null,
                         React__default["default"].createElement("img", { style: {
-                                width: 131,
-                                height: 40,
-                                margin: '7px 0 0 5px'
+                                width: 164,
+                                maxHeight: 40,
+                                margin: '7px 0 0 0'
                             }, src: "https://raw.githubusercontent.com/WhaleKingToken/Contracts/main/logo.png" }),
                         !isMobile && React__default["default"].createElement(MenuItems, { items: links, activeItem: activeItem, activeSubItem: activeSubItem, ml: "24px" })),
                     React__default["default"].createElement(Flex, { alignItems: "center", height: "100%" },
